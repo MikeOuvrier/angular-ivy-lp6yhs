@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
 
-import { LocalDbDemoFabrik } from "src/app/demo/local-databases/root-local-db-demo";
-import { LocalDatabaseNanoSql } from "src/app/demo/local-databases/local-database-nano-sql";
-import { LocalDatabaseSqlJs } from "src/app/demo/local-databases/local-database-sql-js";
-import { LocalDatabaseDexie } from "src/app/demo/local-databases/local-database-dexie";
+import { LocalDbDemoFabrik } from "./../../local-databases/root-local-db-demo";
+import { LocalDatabaseNanoSql } from "./../../local-databases/local-database-nano-sql";
+import { LocalDatabaseSqlJs } from "./../../local-databases/local-database-sql-js";
+import { LocalDatabaseDexie } from "./../../local-databases/local-database-dexie";
 
 /* 101 */
 

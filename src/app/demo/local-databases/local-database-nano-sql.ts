@@ -1,4 +1,5 @@
-import { ATeHelper } from "src/app/demo/libs/ate-helper";
+import { ATeHelper } from "./../libs/ate-helper";
+import { ILocalDbDemo } from "./root-local-db-demo";
 import { nSQL } from "nano-sql";
 
 export class LocalDatabaseNanoSql {
@@ -56,15 +57,15 @@ export class LocalDatabaseNanoSql {
     ])
       .query("select", ["name", "age"])
       .exec()
-      .then((x) => {
+      .then(x => {
         console.log("nanoSql intermédiaire 1");
         return x;
       })
-      .then((y) => {
+      .then(y => {
         console.log(y);
         return y;
       })
-      .then((rows) => {
+      .then(rows => {
         console.log(rows); // <= [{name: "jeb", age: 27}]
       })
       .finally(() => console.log("testNanoSql 1 finally"));
@@ -104,7 +105,7 @@ export class LocalDatabaseNanoSql {
         { key: "age", type: "int" }
       ])
       .connect() // Init the data store for usage. (only need to do this once)
-      .then(function (result) {
+      .then(function(result) {
         return nSQL()
           .query("upsert", {
             // Add a record
@@ -113,10 +114,12 @@ export class LocalDatabaseNanoSql {
           })
           .exec();
       })
-      .then(function (result) {
-        return nSQL().query("select").exec(); // select all rows from the current active table
+      .then(function(result) {
+        return nSQL()
+          .query("select")
+          .exec(); // select all rows from the current active table
       })
-      .then(function (result) {
+      .then(function(result) {
         console.log(result); // <= [{id:1, name:"bill", age: 20}]
       })
       .finally(() => console.log("testNanoSql2 finally"));
@@ -125,7 +128,6 @@ export class LocalDatabaseNanoSql {
   }
 }
 
-import { ILocalDbDemo } from "src/app/demo/local-databases/root-local-db-demo";
 export class LocalDbDemoNanoSql implements ILocalDbDemo {
   async d01CreateDbInsertRecordsGetRecords(recordsCount: number) {
     // Use an instance table to query and organize existing tables of data.

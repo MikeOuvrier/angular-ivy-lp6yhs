@@ -1,5 +1,5 @@
-import { LocalDbDemoNanoSql } from "src/app/demo/local-databases/local-database-nano-sql";
-import { LocalDbDemoSqlJs } from "src/app/demo/local-databases/local-database-sql-js";
+import { LocalDatabaseNanoSql } from "./local-database-nano-sql";
+import { LocalDatabaseSqlJs } from "./local-database-sql-js";
 
 export interface ILocalDbDemo {
   d01CreateDbInsertRecordsGetRecords(recordsCount: number): any;

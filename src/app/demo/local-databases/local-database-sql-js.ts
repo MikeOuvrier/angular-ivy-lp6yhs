@@ -1,7 +1,8 @@
-import { ATeHelper } from "src/app/demo/libs/ate-helper";
+import { ATeHelper } from "./../libs/ate-helper";
+
 export class LocalDatabaseSqlJs {
   public demoSqlJsPromise() {
-    const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
     ATeHelper.emptyPromise
       .then(() => console.log("\n>>> allTestNanoSql\n"))
@@ -26,14 +27,14 @@ export class LocalDatabaseSqlJs {
     //ok aussi var initSqlJs = require('node_modules/sql.js/dist/sql-wasm.js');
 
     var config = {
-      locateFile: (filename) => {
+      locateFile: filename => {
         console.log(filename);
         return `./assets/sql.js/dist/${filename}`;
       }
     };
     // The `initSqlJs` function is globally provided by all of the main dist files if loaded in the browser.
     // We must specify this locateFile function if we are loading a wasm file from anywhere other than the current html page's folder.
-    let promise = initSqlJs(config).then(function (SQL) {
+    let promise = initSqlJs(config).then(function(SQL) {
       //Create the database
       var db = new SQL.Database();
       // Run a query without reading the results
@@ -70,7 +71,7 @@ export class LocalDatabaseSqlJs {
       var initSqlJs = require("src/assets/sql.js/dist/sql-wasm.js");
 
       var config = {
-        locateFile: (filename) => `./assets/sql.js/dist/${filename}`
+        locateFile: filename => `./assets/sql.js/dist/${filename}`
       };
       // The `initSqlJs` function is globally provided by all of the main dist files if loaded in the browser.
       // We must specify this locateFile function if we are loading a wasm file from anywhere other than the current html page's folder.
@@ -131,7 +132,7 @@ class SqlJsHelper {
       var initSqlJs = require("src/assets/sql.js/dist/sql-wasm.js");
 
       var config = {
-        locateFile: (filename) => `./assets/sql.js/dist/${filename}`
+        locateFile: filename => `./assets/sql.js/dist/${filename}`
       };
       // The `initSqlJs` function is globally provided by all of the main dist files if loaded in the browser.
       // We must specify this locateFile function if we are loading a wasm file from anywhere other than the current html page's folder.
@@ -147,7 +148,7 @@ class SqlJsHelper {
       var initSqlJs = require("src/assets/sql.js/dist/sql-wasm.js");
 
       var config = {
-        locateFile: (filename) => `./assets/sql.js/dist/${filename}`
+        locateFile: filename => `./assets/sql.js/dist/${filename}`
       };
       // The `initSqlJs` function is globally provided by all of the main dist files if loaded in the browser.
       // We must specify this locateFile function if we are loading a wasm file from anywhere other than the current html page's folder.
